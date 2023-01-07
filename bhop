@@ -1,0 +1,13 @@
+-- Get the player's character
+local character = game.Players.LocalPlayer.Character
+
+-- Get the player's character's humanoid object
+local humanoid = character.Humanoid
+
+-- Connect a function to the humanoid's running event
+humanoid.Running:Connect(function()
+   -- Jump if the player is on the ground and the space bar is held down
+   if humanoid.FloorMaterial ~= Enum.Material.Air and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.Space) then
+      humanoid.Jump = true
+   end
+end)
